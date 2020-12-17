@@ -25,8 +25,8 @@ def print_board(size, board):
     for i in range(size):
         result = ""
         for j in range(size):
-            result = result + " " + board[i][j]
-        print(result + "\n")
+            result = result + " " + str(board[i][j])
+        print(result)
 
 
 def can_t_attack(size, board):
@@ -34,4 +34,5 @@ def can_t_attack(size, board):
 
 
 def is_soluce(size, board):
-    pass  # TODO
+    nb_queen = len()
+    return can_t_attack(size, board)
