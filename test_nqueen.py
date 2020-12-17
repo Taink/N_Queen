@@ -1,7 +1,6 @@
 import pytest
 import time
-from nqueen_solving import *
-
+from utils import print_board, can_t_attack, is_soluce
 
 def generate_board(size):
     return [[0 for x in range(size)] for y in range(size)]
