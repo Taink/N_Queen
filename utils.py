@@ -21,7 +21,12 @@ def has_attacking(queen_locations: list[tuple[int, int]]) -> bool:
 
 
 def get_queens_from_board(size: int, board: list[list[int]]) -> list[tuple[int, int]]:
-    pass
+    result: list[tuple[int, int]] = []
+    for x in range(size):
+        for y in range(size):
+            if board[x][y] == 1:
+                result.append((x, y))
+    return result
 
 
 def print_board(size: int, board: list[list[int]]) -> None:
@@ -34,7 +39,7 @@ def print_board(size: int, board: list[list[int]]) -> None:
 
 def can_t_attack(size: int, board: list[list[int]]) -> bool:
     queens = get_queens_from_board(size, board)
-    return has_attacking(queens)
+    return not has_attacking(queens)
 
 
 def is_soluce(size, board):
