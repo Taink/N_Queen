@@ -23,9 +23,10 @@ def has_attacking(queen_locations: list[tuple[int, int]]):
 
 def print_board(size, board):
     for i in range(size):
+        result = ""
         for j in range(size):
-            print(" " + board[i][j])
-        print("\n")
+            result = result + " " + board[i][j]
+        print(result + "\n")
 
 
 def can_t_attack(size, board):
