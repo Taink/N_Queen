@@ -12,18 +12,25 @@ on:
 
 jobs:
   # This workflow contains a single job called "build"
-  build:
+  tests:
+    name: Running ${{ matrix.test }} tests for Python ${{ matrix.python }}
     runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        test: ['utils', 'small', 'medium', 'big', 'all']
+        python: ['3.x']
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
 
       - name: Install Python 3
         uses: actions/setup-python@v2.1.4
         with:
           # Version range or exact version of a Python version to use, using SemVer's version range syntax.
-          python-version: '3.x'
+          python-version: ${{ matrix.python }}
           architecture: 'x64'
 
       - name: Install dependencies
@@ -33,15 +40,20 @@ jobs:
 
       - name: Run tests for Utils
         run: pytest -k "TestUtils"
+        if: "matrix.test == 'utils'"
 
       - name: Run tests for small sets
         run: pytest -k "TestSmall"
+        if: "matrix.test == 'small'"
 
       - name: Run tests for medium sets
         run: pytest -k "TestMedium"
+        if: "matrix.test == 'medium'"
 
       - name: Run tests for big sets
         run: pytest -k "TestBig"
+        if: "matrix.test == 'big'"
 
       - name: Run "All Soluce" test
         run: pytest -k "TestAllSoluce"
+        if: "matrix.test == 'all'"
