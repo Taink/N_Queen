@@ -1,6 +1,7 @@
 import pytest
 import time
 from utils import print_board, can_t_attack, is_soluce
+from backtracking import solve_n_queen_small
 
 def generate_board(size):
     return [[0 for x in range(size)] for y in range(size)]
