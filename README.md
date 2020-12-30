@@ -1,7 +1,7 @@
 # N_Queen
-## À propos
-C'est une implémentation en Python 3 du
-[problème des huit dames](https://fr.wikipedia.org/wiki/Probl%C3%A8me_des_huit_dames).
+Une implémentation en Python 3.9 du
+[problème des huit dames](https://fr.wikipedia.org/wiki/Probl%C3%A8me_des_huit_dames).  
+Normalement compatible avec Python 3.6 (à tester).
 
 ## Installation
 ```shell
@@ -22,7 +22,6 @@ $ pytest
 
 ## Notes
 Un cycle de CI est normalement implémenté et permet de vérifier rapidement si la version
-actuelle répond bien aux tests. La structure de ce cycle est dépendante des branches,
-le projet étant subdivisé en 3 "sprints" correspondant aux jalons de notation du projet.  
+actuelle répond bien aux tests. 
 Ce projet devrait respecter les normes indiquées par [gitmoji](https://gitmoji.dev/) pour
 le nommage des commits.
