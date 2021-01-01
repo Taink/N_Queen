@@ -95,5 +95,12 @@ def main(N: int, board: list[list[int]], max_iterations: int = 0):
     return board
 
 
-def solve_n_queen_big(N: int, board: list[list[int]]) -> tuple[list[list[int]], bool] :
-    return board, utils.is_soluce(N, main(N, board, 100))[0]
+def solve_n_queen_big(N: int, board: list[list[int]]) -> tuple[list[list[int]], bool]:
+    solution = None
+    retries = 10
+    while solution is None:
+        if retries < 1:
+            break
+        solution = main(N, board, 100)
+        retries -= 1
+    return solution, utils.is_soluce(N, solution)[0]
