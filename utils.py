@@ -42,6 +42,8 @@ def can_t_attack(size: int, board: list[list[int]]) -> bool:
     return not has_attacking(queens)
 
 
-def is_soluce(size, board):
+def is_soluce(size: int, board: list[list[int]]) -> tuple[bool, int]:
+    if not board:
+        return False, 0
     nb_queen = len(get_queens_from_board(size, board))
     return can_t_attack(size, board) and nb_queen == size, nb_queen
