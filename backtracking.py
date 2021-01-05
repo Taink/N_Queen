@@ -1,4 +1,4 @@
-from utils import print_board, can_t_attack, is_soluce
+from utils import can_t_attack
 
 
 def solve_n_queen_small(board_size: int, board: list[list[int]]) -> tuple[list[list[int]], bool]:
