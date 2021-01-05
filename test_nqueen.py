@@ -3,6 +3,7 @@ import time
 from utils import print_board, can_t_attack, is_soluce
 from backtracking import solve_n_queen_small
 from optimal import solve_n_queen_big
+from all_soluce import solve_n_queen_all_soluce
 
 
 def generate_board(size):
