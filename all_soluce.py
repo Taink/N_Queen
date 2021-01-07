@@ -1,12 +1,12 @@
 from copy import deepcopy
 
-from utils import get_queens_from_board
+from utils import get_queens_from_board, Chessboard
 from optimal import number_attacking
 
 
 class Solver:
-    def __init__(self, board_size: int, board: list[list[int]]):
-        self.solutions: list[list[list[int]]] = []
+    def __init__(self, board_size: int, board: Chessboard):
+        self.solutions: list[Chessboard] = []
         self.board_size = board_size
         self.board = board
 
@@ -23,7 +23,7 @@ class Solver:
                 self.board[row][col] = 0
 
 
-def solve_n_queen_all_soluce(board_size: int, board: list[list[int]]) -> list[list[list[int]]]:
+def solve_n_queen_all_soluce(board_size: int, board: Chessboard) -> list[Chessboard]:
     s = Solver(board_size, board)
     s.find_solutions()
     return s.solutions

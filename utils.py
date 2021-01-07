@@ -1,18 +1,20 @@
-# import math
+Coordinates = tuple[int, int]
+Chessboard = list[list[int]]
 
-def is_diagonal(coord_a: tuple[int, int], coord_b: tuple[int, int]) -> bool:
+
+def is_diagonal(coord_a: Coordinates, coord_b: Coordinates) -> bool:
     x1, y1 = coord_a
     x2, y2 = coord_b
     return abs(x1 - x2) == abs(y1 - y2)
 
 
-def is_attacking(coord_a: tuple[int, int], coord_b: tuple[int, int]) -> bool:
+def is_attacking(coord_a: Coordinates, coord_b: Coordinates) -> bool:
     x1, y1 = coord_a
     x2, y2 = coord_b
     return (x1 == x2) or (y1 == y2) or is_diagonal(coord_a, coord_b)
 
 
-def has_attacking(queen_locations: list[tuple[int, int]]) -> bool:
+def has_attacking(queen_locations: list[Coordinates]) -> bool:
     for i, q in enumerate(queen_locations):
         for q2 in queen_locations[i + 1:]:
             if is_attacking(q, q2):
@@ -20,7 +22,7 @@ def has_attacking(queen_locations: list[tuple[int, int]]) -> bool:
     return False
 
 
-def get_queens_from_board(size: int, board: list[list[int]]) -> list[tuple[int, int]]:
+def get_queens_from_board(size: int, board: Chessboard) -> list[Coordinates]:
     result: list[tuple[int, int]] = []
     for x in range(size):
         for y in range(size):
@@ -29,7 +31,7 @@ def get_queens_from_board(size: int, board: list[list[int]]) -> list[tuple[int, 
     return result
 
 
-def print_board(size: int, board: list[list[int]]) -> None:
+def print_board(size: int, board: Chessboard) -> None:
     for x in range(size):
         result = ""
         for y in range(size):
@@ -37,12 +39,12 @@ def print_board(size: int, board: list[list[int]]) -> None:
         print(result)
 
 
-def can_t_attack(size: int, board: list[list[int]]) -> bool:
+def can_t_attack(size: int, board: Chessboard) -> bool:
     queens = get_queens_from_board(size, board)
     return not has_attacking(queens)
 
 
-def is_soluce(size: int, board: list[list[int]]) -> tuple[bool, int]:
+def is_soluce(size: int, board: Chessboard) -> tuple[bool, int]:
     if not board:
         return False, 0
     nb_queen = len(get_queens_from_board(size, board))

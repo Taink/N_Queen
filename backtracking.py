@@ -1,11 +1,11 @@
-from utils import can_t_attack
+from utils import can_t_attack, Chessboard
 
 
-def solve_n_queen_small(board_size: int, board: list[list[int]]) -> tuple[list[list[int]], bool]:
+def solve_n_queen_small(board_size: int, board: Chessboard) -> tuple[Chessboard, bool]:
     return board, solve_n_queen_small_helper(board_size, board, 0)
 
 
-def solve_n_queen_small_helper(board_size: int, board: list[list[int]], line: int) -> bool:
+def solve_n_queen_small_helper(board_size: int, board: Chessboard, line: int) -> bool:
     """
     Look on a line to position a queen then recursive call
 

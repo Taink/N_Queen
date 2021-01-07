@@ -1,10 +1,11 @@
 import random
 
 import utils
+from utils import Chessboard, Coordinates
 
 
-def number_attacking(coords: tuple[int, int], queens: list[tuple[int, int]],
-                     filter_queen: tuple[int, int] = None) -> int:
+def number_attacking(coords: Coordinates, queens: list[Coordinates],
+                     filter_queen: Coordinates = None) -> int:
     """
     Determines the number of attacking queens for specific coordinates,
     optionally excluding one queen
@@ -25,7 +26,7 @@ def number_attacking(coords: tuple[int, int], queens: list[tuple[int, int]],
     return result
 
 
-def most_constrained_col(board_size: int, board: list[list[int]], row: int) -> int:
+def most_constrained_col(board_size: int, board: Chessboard, row: int) -> int:
     """
     Determines which column is the most constrained in the specified row.
     Ties are solved randomly.
@@ -41,7 +42,7 @@ def most_constrained_col(board_size: int, board: list[list[int]], row: int) -> i
     return random.choice(candidates)
 
 
-def conflicted_queen(board_size: int, board: list[list[int]]) -> tuple[int, int]:
+def conflicted_queen(board_size: int, board: Chessboard) -> Coordinates:
     queens = utils.get_queens_from_board(board_size, board)
     # print(queens)
     attacked_queens = [queen for queen in queens if number_attacking(queen, queens, queen) > 0]
@@ -51,7 +52,7 @@ def conflicted_queen(board_size: int, board: list[list[int]]) -> tuple[int, int]
     return random.choice(attacked_queens)
 
 
-def init(board_size: int, board: list[list[int]]) -> list[list[int]]:
+def init(board_size: int, board: Chessboard) -> Chessboard:
     """
     Creates an initial assignment using a greedy algorithm that places
     queens in the least conflicting indices. Ties are solved randomly.
@@ -67,7 +68,7 @@ def init(board_size: int, board: list[list[int]]) -> list[list[int]]:
     return board
 
 
-def repair(board_size: int, board: list[list[int]], repaired_queen: tuple[int, int]) -> list[list[int]]:
+def repair(board_size: int, board: Chessboard, repaired_queen: Coordinates) -> Chessboard:
     board[repaired_queen[0]][repaired_queen[1]] = 0
     row = repaired_queen[0]
 
@@ -79,7 +80,7 @@ def repair(board_size: int, board: list[list[int]], repaired_queen: tuple[int, i
     return board
 
 
-def main(board_size: int, board: list[list[int]], max_iterations: int = 0):
+def main(board_size: int, board: Chessboard, max_iterations: int = 0) -> Chessboard:
     it = 1
 
     board = init(board_size, board)
@@ -95,7 +96,7 @@ def main(board_size: int, board: list[list[int]], max_iterations: int = 0):
     return board
 
 
-def solve_n_queen_big(board_size: int, board: list[list[int]]) -> tuple[list[list[int]], bool]:
+def solve_n_queen_big(board_size: int, board: Chessboard) -> tuple[Chessboard, bool]:
     solution = None
     retries = 10
     while solution is None:
