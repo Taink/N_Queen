@@ -82,6 +82,7 @@ class TestUtils:
         assert nb_queen == 4
 
 
+# noinspection PyPep8Naming
 class TestSmall:
     def test_solve_three_x_three(self):
         board_size = 3
@@ -111,6 +112,7 @@ class TestSmall:
         assert nb_queen == board_size
 
 
+# noinspection PyPep8Naming
 class TestMedium:
     @pytest.mark.parametrize("board_size", [15, 20])
     def test_solve_N_x_N_with_small_func(self, board_size):
@@ -137,6 +139,7 @@ class TestMedium:
         print(f"\nTest of size {board_size} took {t2 - t1} seconds to be solved")
 
 
+# noinspection PyPep8Naming
 class TestBig:
     @pytest.mark.parametrize("board_size", [50, 100])
     def test_solve_N_x_N(self, board_size):
@@ -149,6 +152,7 @@ class TestBig:
         print(f"\nTest of size {board_size} took {t2 - t1} seconds to be solved")
 
 
+# noinspection PyPep8Naming
 class TestAllSoluce:
     @pytest.mark.parametrize("board_size, nb_soluce", [(4, 2), (5, 10), (6, 4), (7, 40), (8, 92)])
     def test_solve_N_x_N(self, board_size, nb_soluce):

@@ -30,10 +30,10 @@ def get_queens_from_board(size: int, board: list[list[int]]) -> list[tuple[int, 
 
 
 def print_board(size: int, board: list[list[int]]) -> None:
-    for i in range(size):
+    for x in range(size):
         result = ""
-        for j in range(size):
-            result = result + " " + str(board[i][j])
+        for y in range(size):
+            result = result + " " + str(board[x][y])
         print(result)
 
 

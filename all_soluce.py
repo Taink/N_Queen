@@ -1,6 +1,6 @@
 from copy import deepcopy
 
-from utils import can_t_attack, get_queens_from_board
+from utils import get_queens_from_board
 from optimal import number_attacking
 
 
