@@ -154,7 +154,8 @@ class TestBig:
 
 # noinspection PyPep8Naming
 class TestAllSoluce:
-    @pytest.mark.parametrize("board_size, nb_soluce", [(4, 2), (5, 10), (6, 4), (7, 40), (8, 92)])
+    @pytest.mark.parametrize("board_size, nb_soluce",
+                             [(4, 2), (5, 10), (6, 4), (7, 40), (8, 92)])
     def test_solve_N_x_N(self, board_size, nb_soluce):
         board = generate_board(board_size)
         boards = solve_n_queen_all_soluce(board_size, board)
