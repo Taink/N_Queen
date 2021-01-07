@@ -1,4 +1,7 @@
 ## Normes à respecter
+### PEP8
+Ce projet suit les conventions [PEP8](https://www.python.org/dev/peps/pep-0008/)
+là où c'est nécessaire. Ça inclut les conventions de nommage et de style.
 ### Branches
 Le répertoire est découpé de la façon suivante:
 - Une branche `master` qui correspond à une version "livrable" des scripts
