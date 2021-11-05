@@ -1,4 +1,5 @@
 # N_Queen
+[![Tests workflow badge](https://github.com/Taink/N_Queen/workflows/Tests/badge.svg)](https://github.com/Taink/N_Queen/blob/master/.github/workflows/tests.yml)  
 Une implémentation en Python 3.9 du
 [problème des huit dames](https://fr.wikipedia.org/wiki/Probl%C3%A8me_des_huit_dames).  
 Normalement compatible avec Python 3.6 (à tester).
