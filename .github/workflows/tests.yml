@@ -19,7 +19,7 @@ jobs:
     strategy:
       matrix:
         test: ['TestUtils', 'TestSmall', 'TestMedium', 'TestBig', 'TestAllSoluce']
-        python: ['3.9']
+        python: ['3.9'] # 3.10 seems to fail
       fail-fast: false
 
     # Steps represent a sequence of tasks that will be executed as part of the job
